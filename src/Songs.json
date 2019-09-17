@@ -1,0 +1,39 @@
+{
+    "songs":[
+        {   
+            "id":"0",
+            "songName":"Грехи",
+            "singer":"Егор Крид feat. Клава Кока",
+            "minutes":"4",
+            "seconds":"48"
+        },
+        {
+            "id":"1",
+            "songName":"Где Ты, Где Я",
+            "singer":"Тимати feat. Егор Крид",
+            "minutes":"4",
+            "seconds":"43"
+        },
+        {
+            "id":"2",
+            "songName":"Берегу",
+            "singer":"Егор Крид",
+            "minutes":"3",
+            "seconds":"12"
+        },
+        {
+            "id":"3",
+            "songName":"Гучи",
+            "singer":"Тимати feat. Егор Крид ",
+            "minutes":"3",
+            "seconds":"45"
+        },
+        {
+            "id":"4",
+            "songName":"Время Не Пришло",
+            "singer":"Егор Крид",
+            "minutes":"3",
+            "seconds":"17"
+        }
+    ]
+}
