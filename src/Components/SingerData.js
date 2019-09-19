@@ -53,11 +53,10 @@ class SingerData extends Component{
                 </ArrowCon>
                 <SingersData>
                     <ListNumberCon>
-                        <OutOfNumber>{'0'+Number(currentIndex+1)}</OutOfNumber>
+                        <OutOfNumber>{'0' + Number(currentIndex+1)}</OutOfNumber>
                         <TotalNumber>{'/0' + listOfNews.length}</TotalNumber>
                     </ListNumberCon>
-                        <News>News</News>
-                        {/* <NewsText>В 2014 году выпустил песню «Самая самая»,<br/>которая была написана Кридом и другими участниками творческого<br/> процесса за 15 минут[5].</NewsText> */}
+                        <News>News</News> 
                         <NewsText>{currentNews.data}</NewsText>
                         <ContinueReading>Читать дальше -></ContinueReading>
                 </SingersData>
