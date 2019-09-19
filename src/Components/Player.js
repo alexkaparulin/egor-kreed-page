@@ -31,7 +31,7 @@ class Player extends Component{
         play:playerplay,
         stop:playerStop,
         playerLine:0,
-        value:50,
+        value:40,
         valueIsChanged:false,
         arrOfSongs:[grekhi,gdeTiGde,beregu,gucci,vremaNePrishlo],
         songData:songJson,
@@ -46,6 +46,9 @@ class Player extends Component{
         time_seconds:48,
     }
 
+    componentDidUpdate(){
+        console.log(this.state.value)
+    }
     stopIt(){
         let { time_seconds, time_minutes, playerLine ,initial_minutes, initial_seconds } = this.state;
         let insideLine = document.getElementById("insideLine");
@@ -81,7 +84,7 @@ class Player extends Component{
             playerLine   : playerLine })
     }
 
-    playerInverval=(doesPlayerWork)=>{
+    playerInverval = (doesPlayerWork) => {
         if (doesPlayerWork === true){
             this.interval = setInterval(()=>this.stopIt(), 1000)
         }
@@ -90,14 +93,14 @@ class Player extends Component{
         }    
     }
 
-    playAudio=()=> { 
+    playAudio = () => { 
         var audio = document.getElementById("myAudio"); 
         this.setState({isPlaying:true})   
         audio.play(); 
         this.playerInverval(true)
     }
 
-    pauseAudio=()=> {
+    pauseAudio = () => {
         var audio = document.getElementById("myAudio"); 
         this.setState({isPlaying:false})
         audio.pause(); 
@@ -106,6 +109,7 @@ class Player extends Component{
 
     updateRange(e){
         var audio = document.getElementById("myAudio"); 
+        console.log(e.target.value)
         this.setState({
             value: e.target.value,
             valueIsChanged:true },() => audio.volume = this.state.value / 100);
@@ -131,7 +135,7 @@ class Player extends Component{
             initial_seconds : songData.songs[songIndex].seconds,
         })
     }
-
+    
     render(){
         const { isPlaying, play, stop, time_minutes, time_seconds, value, valueIsChanged, arrOfSongs,
                 nowPlaying, nowPlayingIndex, songData, playingSong, playingSinger, songAlbum} = this.state;
@@ -162,7 +166,7 @@ class Player extends Component{
                     <VolumeImg src={volumeIcon}></VolumeImg>
                     <RangeContainer>
                         <VolumeLine type='range' min="0" max="100" step="1" onChange={(e)=>this.updateRange(e)} ></VolumeLine>
-                        <VolumeInSideLine  width={value+'%'} isChangedValue={valueIsChanged}></VolumeInSideLine>
+                        <VolumeInSideLine  width={value + '%'} isChangedValue={valueIsChanged} ></VolumeInSideLine>
                     </RangeContainer>
                 </VolumeCon>
         </PlayerCon>
@@ -258,6 +262,7 @@ const RangeContainer = styled.div`
     flex-direction:column;
     justify-content:center;
     padding-left:5px;
+    /* border:1px solid green; */
 `
 const VolumeImg = styled.img`
     height:20px;
@@ -265,11 +270,13 @@ const VolumeImg = styled.img`
 `
 const VolumeInSideLine = styled.div`
     border:1px solid #ffffff;
+    /* border:1px solid red; */
+    /* background:blue; */
     height:60%;
     display:flex;
     position:relative;
     top:-5.5px;
-    left:2.5px;
+    left:2px;
     width:${props => props.width};
     max-width:85%;
     overflow:hidden;
@@ -282,14 +289,16 @@ const VolumeLine = styled.input`
     background:#454545;
     height:3px;
     outline:none;
-    overflow:hidden;
+    /* overflow-x:hidden; */
     cursor: pointer;
     width:85%;
     &::-webkit-slider-thumb {
         appearance: none;
-        width: 5px; 
-        height: 5px; 
+        width: 8px; 
+        height: 8px; 
+        /* border-radius: 50%;  */
+        /* z-index:2; */
+        /* margin-left:${props => props.margin}; */
         background: transparent; 
-        cursor: pointer; 
 }
 `

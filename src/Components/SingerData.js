@@ -15,7 +15,7 @@ class SingerData extends Component{
 
     moveBack(currentIndex,listOfNews){
         currentIndex--;
-
+        
         if(currentIndex < 0){
             currentIndex = 4
         }
@@ -26,7 +26,7 @@ class SingerData extends Component{
     }
     moveForward(currentIndex,listOfNews){
         currentIndex++;
-
+        
         if(currentIndex >= listOfNews.length){
             currentIndex = 0
         }
@@ -44,11 +44,11 @@ class SingerData extends Component{
             </SingerPhoto>
             <SingerDataCon>
                 <ArrowCon>
-                    <ArrowLeft>
-                        <Left src={back} onClick={()=>this.moveBack(currentIndex,listOfNews)}></Left>
+                    <ArrowLeft onClick={()=>this.moveBack(currentIndex,listOfNews)}>
+                        <Left src={back}></Left>
                     </ArrowLeft>
-                    <ArrowRight>
-                        <Right src={forward} onClick={()=>this.moveForward(currentIndex,listOfNews)}></Right>
+                    <ArrowRight onClick={()=>this.moveForward(currentIndex,listOfNews)}>
+                        <Right src={forward}></Right>
                     </ArrowRight>
                 </ArrowCon>
                 <SingersData>
