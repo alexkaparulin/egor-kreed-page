@@ -9,27 +9,22 @@ import SocialRightbar from '../Components/SocialRightbar';
 import Player from '../Components/Player';
 import SingerData from '../Components/SingerData';
 
-// import grekhi from '../music/egor-krid-grekhi.mp3'
-// import gdeTiGde from '../music/gde-ti-gde-ya.mp3'
-
 
 class HomePage extends Component{
-    // state={
-        // arrOfSongs:[grekhi,gdeTiGde]
-    // }
+    
     render(){
         let { isClicked } = this.props;     
 
     return (
         <Wrapper>
-            { isClicked === true && <CenterNavbar/> }
+            { isClicked === true && <CenterNavbar/> } {/* OnClick Center-Navbar is opened*/}
             <SidesCon>
-                <LeftNavbar /> {/*Left-Navbar Component */}
+                <LeftNavbar />     {/*Left-Navbar Component */}
                 <SocialRightbar /> {/*Right-Social-Icons Component */}
             </SidesCon>
             <BottomCon>
-                <Player/> {/* Player-Container Component*/}
-                <SingerData />{/* Singer-Data Component* */}
+                <Player/>          {/* Player-Container Component*/}
+                <SingerData />     {/* Singer-Data Component* */}
             </BottomCon>
         </Wrapper>
         );

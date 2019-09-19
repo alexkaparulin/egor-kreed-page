@@ -1,36 +1,71 @@
-import React from 'react';
+import React,{Component} from 'react';
 import styled from 'styled-components';
 
 import ekPhoto from '../images/Other/image_article.png'
 import back from '../images/Other/back.png'
 import forward from '../images/Other/next.png'
+import newsList from '../News.json'
 
-const SingerData = () =>(
-    <SingerWrap>
-        <SingerPhoto>
-            <SingerImg src={ekPhoto}></SingerImg>
-        </SingerPhoto>
-        <SingerDataCon>
-            <ArrowCon>
-                <ArrowLeft>
-                    <Left src={back}></Left>
-                </ArrowLeft>
-                <ArrowRight>
-                    <Right src={forward}></Right>
-                </ArrowRight>
-            </ArrowCon>
-            <SingersData>
-                <ListNumberCon>
-                    <OutOfNumber>01</OutOfNumber>
-                    <TotalNumber>/05</TotalNumber>
-                </ListNumberCon>
-                    <News>News</News>
-                    <NewsText>В 2014 году выпустил песню «Самая самая»,<br/>которая была написана Кридом и другими участниками творческого<br/> процесса за 15 минут[5].</NewsText>
-                    <ContinueReading>Читать дальше -></ContinueReading>
-            </SingersData>
-        </SingerDataCon>    
-    </SingerWrap>
-    )
+class SingerData extends Component{
+    state={
+        listOfNews:newsList.news,
+        currentIndex:0,
+        currentNews:newsList.news[0]
+    }
+
+    moveBack(currentIndex,listOfNews){
+        currentIndex--;
+
+        if(currentIndex < 0){
+            currentIndex = 4
+        }
+        this.setState({
+            currentIndex:currentIndex,
+            currentNews:listOfNews[currentIndex]
+        })
+    }
+    moveForward(currentIndex,listOfNews){
+        currentIndex++;
+
+        if(currentIndex >= listOfNews.length){
+            currentIndex = 0
+        }
+        this.setState({
+            currentIndex:currentIndex,
+            currentNews:listOfNews[currentIndex]
+        })
+    }
+    render(){
+        const {currentIndex, currentNews, listOfNews} = this.state;
+        return(
+        <SingerWrap>
+            <SingerPhoto>
+                <SingerImg src={ekPhoto}></SingerImg>
+            </SingerPhoto>
+            <SingerDataCon>
+                <ArrowCon>
+                    <ArrowLeft>
+                        <Left src={back} onClick={()=>this.moveBack(currentIndex,listOfNews)}></Left>
+                    </ArrowLeft>
+                    <ArrowRight>
+                        <Right src={forward} onClick={()=>this.moveForward(currentIndex,listOfNews)}></Right>
+                    </ArrowRight>
+                </ArrowCon>
+                <SingersData>
+                    <ListNumberCon>
+                        <OutOfNumber>{'0'+Number(currentIndex+1)}</OutOfNumber>
+                        <TotalNumber>{'/0' + listOfNews.length}</TotalNumber>
+                    </ListNumberCon>
+                        <News>News</News>
+                        {/* <NewsText>В 2014 году выпустил песню «Самая самая»,<br/>которая была написана Кридом и другими участниками творческого<br/> процесса за 15 минут[5].</NewsText> */}
+                        <NewsText>{currentNews.data}</NewsText>
+                        <ContinueReading>Читать дальше -></ContinueReading>
+                </SingersData>
+            </SingerDataCon>    
+        </SingerWrap>
+        )
+    }
+}
 
 export default SingerData;
 
@@ -57,6 +92,7 @@ const ArrowLeft = styled.div`
     background:#101012;
     height:35px;
     width:35px;
+    cursor: pointer;
     &:hover{
         background:#1E1E1E;
     }
@@ -81,30 +117,36 @@ const SingersData = styled.div`
 `
 const ListNumberCon = styled.div`
     display:flex;
-    margin-bottom:-10px;
     padding-left:20px;
+    height:40px;
 `
 const TotalNumber = styled.p`
-    font-size:14px;
-    color:#1E1E1E;
+    font-size:12px;
+    color:#454545;
+    align-self:center;
+    font-weight:700;
 `
 const OutOfNumber = styled.p`
-    font-size:15px;
+    font-size:18px;
     color:#FFFFFF;
+    align-self:center;
 `
 const News = styled.p`
-    color:#1E1E1E;
+    color:#454545;
     font-size:12px;
-    margin-bottom:-10px;
+    margin-bottom:-5px;
     padding-left:20px;
+    font-weight:700;
 `
 const NewsText = styled.p`
     font-size:12px;
     color:#FFFFFF;
     padding-left:20px;
+    font-weight:600;
 `
 const ContinueReading = styled.p`
     font-size:12px;
     color:#FFFFFF;
     padding-left:20px;
+    font-weight:600;
 `

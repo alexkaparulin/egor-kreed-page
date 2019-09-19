@@ -19,8 +19,8 @@ class SocialRightBar extends Component{
         <RightBarContainer>
             <MenuImage src={Menu} onClick={()=>doOpenNavbar(true)}></MenuImage>
             <SocialListCon>
-                <SocialImg style={{height:'13px'}}  src={instagram}></SocialImg>
-                <SocialImg style={{height:'13px',width:'11px'}} src={facebook}></SocialImg>
+                <SocialImg style={{height:'12px',width:'12px'}}  src={instagram}></SocialImg>
+                <SocialImg style={{height:'13px',width:'9px'}} src={facebook}></SocialImg>
                 <SocialImg src={twitter}></SocialImg>
                 <SocialImg src={vk}></SocialImg>
                 <SocialImg src={youtube}></SocialImg>

@@ -1,7 +1,6 @@
 import React,{ Component } from 'react';
 import styled from 'styled-components';
 
-import album from '../images/Other/Album Cover image.png'
 import playerforward from '../images/Music Player/fast-forward.png'
 import playerback from '../images/Music Player/back-forward.png'
 import volumeIcon from '../images/Music Player/Volum.png'
@@ -9,10 +8,19 @@ import playerplay from '../images/Music Player/Play.png'
 import playerStop from '../images/Music Player/Pause.png'
 
 import grekhi from '../music/egor-krid-grekhi.mp3'
+import grekhiAlbum from '../images/Other/Album Cover image.png'
+
 import gdeTiGde from '../music/gde-ti-gde-ya.mp3'
+import gdeTiAlbum from '../images/album/gde-ti-gde.jpg'
+
 import beregu from '../music/egor-krid-beregu.mp3'
+import bereguAlbum from '../images/album/beregu.jpg'
+
 import gucci from '../music/egor-krid-gucci.mp3'
+import gucciAlbum from '../images/album/gucci.jpg'
+
 import vremaNePrishlo from '../music/vrema-ne-prishlo.mp3'
+import vremaNeAlbum from '../images/album/vrema-ne.jpg'
 
 import songJson from '../../src/Songs.json';
 
@@ -27,6 +35,7 @@ class Player extends Component{
         valueIsChanged:false,
         arrOfSongs:[grekhi,gdeTiGde,beregu,gucci,vremaNePrishlo],
         songData:songJson,
+        songAlbum:[grekhiAlbum,gdeTiAlbum,bereguAlbum,gucciAlbum,vremaNeAlbum],
         nowPlaying:grekhi,
         nowPlayingIndex:0,
         playingSong:'Грехи',
@@ -41,12 +50,13 @@ class Player extends Component{
         let { time_seconds, time_minutes, playerLine ,initial_minutes, initial_seconds } = this.state;
         let insideLine = document.getElementById("insideLine");
 
-        let eachSecPercent = 100 / ((initial_minutes * 60) + initial_seconds);
+        let eachSecPercent = 100 / Number( (Number(initial_minutes * 60)) + Number(initial_seconds) );
          
         time_seconds--;
-        playerLine += eachSecPercent;
+        playerLine = Number(playerLine) + Number(eachSecPercent);
         insideLine.style.width = playerLine +'%';  
         // 288-100%  1% = 0.34722
+
 
         if(time_seconds === 0){
             time_seconds = 59;
@@ -63,6 +73,7 @@ class Player extends Component{
             this.pauseAudio();
             time_seconds = initial_seconds;
             time_minutes = initial_minutes;
+            playerLine   = 0;
         }
         this.setState({
             time_minutes : time_minutes,
@@ -97,7 +108,7 @@ class Player extends Component{
         var audio = document.getElementById("myAudio"); 
         this.setState({
             value: e.target.value,
-            valueIsChanged:true },()=>audio.volume = this.state.value / 100);
+            valueIsChanged:true },() => audio.volume = this.state.value / 100);
     }
 
     changeSongForward(arrOfSongs,nowPlaying,songData){
@@ -111,6 +122,7 @@ class Player extends Component{
         this.setState({
             nowPlaying      : arrOfSongs[songIndex],
             nowPlayingIndex : songIndex,
+            playerLine      : 0,
             playingSinger   : songData.songs[songIndex].singer,
             playingSong     : songData.songs[songIndex].songName,
             time_minutes    : songData.songs[songIndex].minutes,
@@ -122,12 +134,11 @@ class Player extends Component{
 
     render(){
         const { isPlaying, play, stop, time_minutes, time_seconds, value, valueIsChanged, arrOfSongs,
-                nowPlaying, nowPlayingIndex, songData, playingSong, playingSinger} = this.state;
-
+                nowPlaying, nowPlayingIndex, songData, playingSong, playingSinger, songAlbum} = this.state;
         return(
         <PlayerCon>
             <SongCon>
-                <AlbumImg src={album}></AlbumImg>
+                <AlbumImg src={songAlbum[nowPlayingIndex]}></AlbumImg>
                 <SongNameCon>
                     <SongName>{playingSong}</SongName>
                     <SubSongName>{playingSinger}</SubSongName>
