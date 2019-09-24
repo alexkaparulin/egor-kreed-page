@@ -118,6 +118,7 @@ const SingerPhoto = styled.div`
     flex-basis:40%;
     @media (max-width: 425px) {
     width:100%;
+    display:none;
     border-bottom:1px solid gray;
   }
 `
