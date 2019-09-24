@@ -84,14 +84,14 @@ const SingerDataCon = styled.div`
     flex-direction:column;
     flex-basis:60%;
     @media (max-width: 425px) {
-    flex-basis:100%;
+    width:100%;
   }
 `
 const ArrowCon = styled.div`
     display:flex;
     justify-content:flex-end;
     @media (max-width: 425px) {
-    background:#101012;
+    height:auto;
 }
 `
 const ArrowLeft = styled.div`
@@ -108,6 +108,7 @@ const ArrowLeft = styled.div`
     @media (max-width: 425px) {
     height:25px;
     width:25px;
+    border:1px solid #000000;
   }
 `
 const Left = styled.img``

@@ -263,6 +263,7 @@ const MusicPlayerCon = styled.div`
     flex-direction:column;
     justify-content:space-between;
     align-items:center;
+    height:450px;
   }
 `
 const MusicPlayer = styled.div`
