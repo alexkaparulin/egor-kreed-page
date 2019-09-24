@@ -9,6 +9,8 @@ import { createStore } from 'redux';
 
 const store = createStore(rootReducer);
 
+//https://sad-lalande-fceca6.netlify.com/ 
+
 ReactDOM.render(
 <Provider store={store}>
     <App />
