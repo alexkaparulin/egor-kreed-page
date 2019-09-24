@@ -109,7 +109,6 @@ class Player extends Component{
 
     updateRange(e){
         var audio = document.getElementById("myAudio"); 
-        console.log(e.target.value)
         this.setState({
             value: e.target.value,
             valueIsChanged:true },() => audio.volume = this.state.value / 100);
@@ -118,8 +117,6 @@ class Player extends Component{
     changeSongBack(arrOfSongs,nowPlaying,songData){
       this.pauseAudio();
       let songIndex = nowPlaying;
-      console.log(nowPlaying)
-      // let songArrLength = arrOfSongs.length;
       songIndex--;
       if(songIndex < 0){
           songIndex = arrOfSongs.length-1;
