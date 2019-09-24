@@ -115,6 +115,27 @@ class Player extends Component{
             valueIsChanged:true },() => audio.volume = this.state.value / 100);
     }
 
+    changeSongBack(arrOfSongs,nowPlaying,songData){
+      this.pauseAudio();
+      let songIndex = nowPlaying;
+      console.log(nowPlaying)
+      // let songArrLength = arrOfSongs.length;
+      songIndex--;
+      if(songIndex < 0){
+          songIndex = arrOfSongs.length-1;
+      }
+      this.setState({
+          nowPlaying      : arrOfSongs[songIndex],
+          nowPlayingIndex : songIndex,
+          playerLine      : 0,
+          playingSinger   : songData.songs[songIndex].singer,
+          playingSong     : songData.songs[songIndex].songName,
+          time_minutes    : songData.songs[songIndex].minutes,
+          time_seconds    : songData.songs[songIndex].seconds,
+          initial_minutes : songData.songs[songIndex].minutes,
+          initial_seconds : songData.songs[songIndex].seconds,
+      })
+  }
     changeSongForward(arrOfSongs,nowPlaying,songData){
         this.pauseAudio();
         let songIndex = nowPlaying;
@@ -151,7 +172,7 @@ class Player extends Component{
             <MusicPlayerCon>
                 <Audio src={nowPlaying} id="myAudio" type='audio/mpeg'></Audio>
                 <MusicPlayer>
-                    <PlayerBack src={playerback}></PlayerBack>
+                    <PlayerBack src={playerback} onClick={()=>this.changeSongBack(arrOfSongs,nowPlayingIndex,songData)}></PlayerBack>
                     <PlayerPlay src={isPlaying === false? play : stop} onClick={isPlaying === false? this.playAudio : this.pauseAudio}></PlayerPlay>
                     <PlayerForward src={playerforward} onClick={()=>this.changeSongForward(arrOfSongs,nowPlayingIndex,songData)}></PlayerForward>
                 </MusicPlayer>
@@ -281,6 +302,7 @@ const MusicPlayer = styled.div`
 const PlayerBack = styled.img`
     width:20px;
     height:15px;
+    cursor: pointer;
     @media (max-width: 425px) {
     width:25px;
     height:20px;
@@ -297,6 +319,7 @@ const PlayerBack = styled.img`
 const PlayerPlay = styled.img`
     width:35px;
     height:35px;
+    cursor: pointer;
     @media (max-width: 425px) {
     width:40px;
     height:40px;
@@ -313,6 +336,7 @@ const PlayerPlay = styled.img`
 const PlayerForward = styled.img`
     width:20px;
     height:15px;
+    cursor: pointer;    
     @media (max-width: 425px) {
     width:25px;
     height:20px;

@@ -52,7 +52,7 @@ const RightBarContainer = styled.div`
     margin-top:50px;
 `
 const MenuImage = styled.img`
-    margin-bottom:200px;
+    margin-bottom:100px;
     cursor: pointer;
     @media (max-width: 425px) {
     margin-bottom:110px;
@@ -66,7 +66,7 @@ const SocialListCon = styled.div`
     flex-direction:column;
     justify-content:space-around;
     align-items:center;
-    height:250px;
+    height:200px;
     @media (max-width: 425px) {
     height:280px;
     display:none;
