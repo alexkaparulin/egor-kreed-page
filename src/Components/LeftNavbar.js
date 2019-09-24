@@ -68,7 +68,7 @@ const LeftBarContainer = styled.div`
     margin-top:50px;
 `
 const Image = styled.img`
-    margin-bottom:60px;
+    margin-bottom:100px;
 `
 const Arrow = styled.div`
     display:flex;
@@ -93,7 +93,7 @@ const NavText = styled.div`
     color:#4A4A4A;
     display:flex;
     align-items:center;
-    height:40px;
+    height:45px;
     width:100%;
     &:hover ${Line}{
         color:red;

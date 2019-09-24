@@ -180,21 +180,54 @@ const PlayerCon = styled.div`
     height:60px;
     background:#000000;
     flex-basis:60%;
+    @media (max-width: 425px) {
+    flex-direction:column;
+    margin-top:50px;
+    width:100%;
+    height:auto;
+    padding:15px 0;
+    border-top:1px solid gray;
+  }
 `
 const SongCon = styled.div`
     display:flex;
     align-items:center;
     padding-left:30px;
     flex-basis:30%;
+    @media (max-width: 425px) {
+    flex-direction:column;
+    justify-content:center;
+    height:auto;
+    align-items:space-around;
+    padding-left:0px;
+    padding:10px 0;
+  }
+    @media(min-width: 425px) and (max-width: 768px){
+    margin:0;
+    padding-left:10px;
+  }
 `
 const AlbumImg = styled.img`
-    width:30%;
+    width:22%;
     height:80%;
+    @media (max-width: 425px) {
+    width:120px;
+    height:110px;
+    margin-bottom:20px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    width:60px;
+    height:40px;
+  }
 `
 const SongNameCon = styled.div`
     display:flex;
     flex-direction:column;
-    padding-left:5px;
+    padding-left:10px;
+    @media (max-width: 425px) {
+    align-items:center;
+    padding-left:0px;
+  }
 `
 const Audio = styled.audio`
     height:100px;
@@ -204,39 +237,112 @@ const SongName = styled.p`
     color:#FFFFFF;
     font-size:11px;
     padding-bottom:3px;
+    @media (max-width: 425px) {
+    font-size:15px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    font-size:9px;
+  }
 `
 const SubSongName = styled.p`
     color:gray;
     font-size:10px;
     margin-top:-12px;
+    @media (max-width: 425px) {
+    font-size:14px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    font-size:8px;
+  }
 `
 const MusicPlayerCon = styled.div`
     display:flex;
     flex-basis:60%;
+    justify-content:space-between;
+    @media (max-width: 425px) {
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+  }
 `
 const MusicPlayer = styled.div`
     display:flex;
     align-items:center;
-    justify-content:space-around;
-    flex-basis:30%;
+    justify-content:space-evenly;
+    flex-basis:25%;
+    @media (max-width: 425px) {
+    width:80%;
+    padding:15px 0;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    justify-content:space-between;
+    width:120%;
+  }
 `
 const PlayerBack = styled.img`
     width:20px;
     height:15px;
+    @media (max-width: 425px) {
+    width:25px;
+    height:20px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    width:15px;
+    height:12px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width:20px;
+    height:15px;
+  }
 `
 const PlayerPlay = styled.img`
     width:35px;
     height:35px;
+    @media (max-width: 425px) {
+    width:40px;
+    height:40px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    width:25px;
+    height:25px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width:35px;
+    height:35px;
+  }
 `
 const PlayerForward = styled.img`
     width:20px;
     height:15px;
+    @media (max-width: 425px) {
+    width:25px;
+    height:20px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    width:15px;
+    height:12px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width:20px;
+    height:15px;
+  }
 `
 const PlayerLine = styled.div`
     display:flex;
     align-items:center;
-    justify-content:space-around;
+    margin-left:-15px;
+    justify-content:space-evenly;
     width:100%;
+    @media (max-width: 425px) {
+    margin-left:0px;
+  }
+    @media (min-width: 426px) and (max-width: 768px) {
+    width:65%;
+    padding:0 8px 0 0;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width:75%;
+  }
 `
 const PLine = styled.div`
     border:1px solid #454545;
@@ -250,19 +356,36 @@ const InsidePLine = styled.div`
 const PlayerTime = styled.p`
     color:#454545;
     font-size:12px;
+    margin-left:-10px;
+    align-self:center;
+    @media (max-width: 425px) {
+    margin-left:0px;
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    margin-left:4px;
+    font-size:10px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    margin-left:3px;
+  }
 `
 const VolumeCon = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
     flex-basis:20%;
+    @media (max-width: 426px) {
+    justify-content:center;
+    align-items:space-around;
+    padding:10px 0;
+  }
 `
 const RangeContainer = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
     padding-left:5px;
-    /* border:1px solid green; */
+
 `
 const VolumeImg = styled.img`
     height:20px;
@@ -270,13 +393,11 @@ const VolumeImg = styled.img`
 `
 const VolumeInSideLine = styled.div`
     border:1px solid #ffffff;
-    /* border:1px solid red; */
-    /* background:blue; */
     height:60%;
     display:flex;
     position:relative;
     top:-5.5px;
-    left:2px;
+    left:2.5px;
     width:${props => props.width};
     max-width:85%;
     overflow:hidden;
@@ -289,16 +410,12 @@ const VolumeLine = styled.input`
     background:#454545;
     height:3px;
     outline:none;
-    /* overflow-x:hidden; */
     cursor: pointer;
     width:85%;
     &::-webkit-slider-thumb {
         appearance: none;
         width: 8px; 
         height: 8px; 
-        /* border-radius: 50%;  */
-        /* z-index:2; */
-        /* margin-left:${props => props.margin}; */
         background: transparent; 
 }
 `

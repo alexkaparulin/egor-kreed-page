@@ -20,8 +20,8 @@ class SocialRightBar extends Component{
         <RightBarContainer>
             <MenuImage src={Menu} onClick={()=>doOpenNavbar(true)}></MenuImage>
             <SocialListCon>
-                <SocialImg style={{height:'12px',width:'12px'}}  src={instagram} onClick={()=>{window.location.href='https://www.instagram.com/egorkreed/'}}></SocialImg>
-                <SocialImg style={{height:'13px',width:'9px'}} src={facebook} onClick={()=>{window.location.href='https://www.facebook.com/kreedmusic/'}}></SocialImg>
+                <SocialImg style={{height:'13px',width:'13px'}}  src={instagram} onClick={()=>{window.location.href='https://www.instagram.com/egorkreed/'}}></SocialImg>
+                <SocialImg style={{height:'13px',width:'8px'}} src={facebook} onClick={()=>{window.location.href='https://www.facebook.com/kreedmusic/'}}></SocialImg>
                 <SocialImg src={twitter} onClick={()=>{window.location.href='https://twitter.com/egorkreed'}}></SocialImg>
                 <SocialImg src={vk} onClick={()=>{window.location.href='https://vk.com/egorkreed'}}></SocialImg>
                 <SocialImg src={youtube} onClick={()=>{window.location.href='https://www.youtube.com/channel/UCZeinbsBPa37qf4HPj_w-lw'}}></SocialImg>
@@ -52,13 +52,24 @@ const RightBarContainer = styled.div`
     margin-top:50px;
 `
 const MenuImage = styled.img`
-    margin-bottom:100px;
+    margin-bottom:200px;
+    cursor: pointer;
+    @media (max-width: 425px) {
+    margin-bottom:110px;
+  }
+    @media (min-width: 426px) and (max-width: 768px) {
+    margin-bottom:180px;
+  }
 `
 const SocialListCon = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:space-around;
-    height:200px;
+    align-items:center;
+    height:250px;
+    @media (max-width: 425px) {
+    height:280px;
+  }
 `
 const SocialImg = styled.img`
     height:12px;

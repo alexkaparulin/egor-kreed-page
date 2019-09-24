@@ -44,6 +44,7 @@ const Wrapper = styled.div`
     flex-direction:column;
     background:black;
     height:100vh;
+    overflow-y:scroll;
     background:url(${background});
     background-repeat:no-repeat;
     background-size:cover;
@@ -58,4 +59,8 @@ const BottomCon = styled.div`
     align-items:flex-end;
     height:30%;
     width:100%;
+    @media (max-width: 425px) {
+    height:auto;
+    flex-direction:column;
+  }
 `

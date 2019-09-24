@@ -74,15 +74,25 @@ const SingerWrap = styled.div`
     align-items:flex-end;
     height:160px;
     flex-basis:40%;
+    @media (max-width: 425px) {
+    flex-direction:column;
+    height:auto;
+}
 `
 const SingerDataCon = styled.div`
     display:flex;
     flex-direction:column;
     flex-basis:60%;
+    @media (max-width: 425px) {
+    flex-basis:100%;
+  }
 `
 const ArrowCon = styled.div`
     display:flex;
     justify-content:flex-end;
+    @media (max-width: 425px) {
+    background:#101012;
+}
 `
 const ArrowLeft = styled.div`
     display:flex;
@@ -95,6 +105,10 @@ const ArrowLeft = styled.div`
     &:hover{
         background:#1E1E1E;
     }
+    @media (max-width: 425px) {
+    height:25px;
+    width:25px;
+  }
 `
 const Left = styled.img``
 const ArrowRight = styled(ArrowLeft)``
@@ -102,6 +116,10 @@ const Right = styled(Left)``
 const SingerPhoto = styled.div`
     display:flex;
     flex-basis:40%;
+    @media (max-width: 425px) {
+    width:100%;
+    border-bottom:1px solid gray;
+  }
 `
 const SingerImg = styled.img`
     height:100%;
@@ -142,10 +160,23 @@ const NewsText = styled.p`
     color:#FFFFFF;
     padding-left:20px;
     font-weight:600;
+    @media (max-width: 425px) {
+    font-size:10px;
+  }
+   @media (min-width: 426px) and (max-width: 768px) {
+    font-size:9px;
+  }
+  
 `
 const ContinueReading = styled.p`
     font-size:12px;
     color:#FFFFFF;
     padding-left:20px;
     font-weight:600;
+    @media (max-width: 425px) {
+    font-size:9px;
+  }
+   @media (min-width: 426px) and (max-width: 768px) {
+    font-size:9px;
+  }
 `
