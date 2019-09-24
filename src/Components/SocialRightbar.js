@@ -69,6 +69,7 @@ const SocialListCon = styled.div`
     height:250px;
     @media (max-width: 425px) {
     height:280px;
+    display:none;
   }
 `
 const SocialImg = styled.img`

@@ -102,4 +102,7 @@ const NavText = styled.div`
     &:hover ${P}{
         color:#FFFFFF;
     }
+    @media (max-width: 425px) {
+    display:none;
+  }
 `

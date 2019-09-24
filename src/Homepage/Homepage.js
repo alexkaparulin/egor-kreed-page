@@ -8,7 +8,7 @@ import LeftNavbar from '../Components/LeftNavbar';
 import SocialRightbar from '../Components/SocialRightbar';
 import Player from '../Components/Player';
 import SingerData from '../Components/SingerData';
-
+import ekPhoto from '../images/Other/image_article.png'
 
 class HomePage extends Component{
     
@@ -48,11 +48,21 @@ const Wrapper = styled.div`
     background:url(${background});
     background-repeat:no-repeat;
     background-size:cover;
+    @media (max-width: 425px) {
+    background:#000000;
+    background:url(${ekPhoto});
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+  }
 `
 const SidesCon = styled.div`
     display:flex;
     justify-content:space-between;
     height:70%;
+    @media (max-width: 425px) {
+    height:auto;
+  }
 `
 const BottomCon = styled.div`
     display:flex;

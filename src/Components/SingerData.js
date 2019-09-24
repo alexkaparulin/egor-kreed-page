@@ -92,6 +92,7 @@ const ArrowCon = styled.div`
     justify-content:flex-end;
     @media (max-width: 425px) {
     height:auto;
+    background:#000000;
 }
 `
 const ArrowLeft = styled.div`

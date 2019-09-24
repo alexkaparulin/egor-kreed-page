@@ -182,11 +182,9 @@ const PlayerCon = styled.div`
     flex-basis:60%;
     @media (max-width: 425px) {
     flex-direction:column;
-    margin-top:50px;
     width:100%;
     height:auto;
     padding:15px 0;
-    border-top:1px solid gray;
   }
 `
 const SongCon = styled.div`
@@ -263,7 +261,7 @@ const MusicPlayerCon = styled.div`
     flex-direction:column;
     justify-content:space-between;
     align-items:center;
-    height:450px;
+    height:auto;
   }
 `
 const MusicPlayer = styled.div`
